@@ -68,3 +68,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Steps to build this project
+### 1. Install dependencies
+
+ npm install firebase random-words react-toastify styled-components chart.js react-chartjs-2 @mui/icons-material @mui/material @emotion/styled @emotion/react
