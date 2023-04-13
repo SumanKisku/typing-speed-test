@@ -1,13 +1,14 @@
+import TypingBox from "./components/TypingBox";
 import { GlobalStyles } from "./styles/global";
-import {useTestMode} from './context/TestModeContext'
 
 function App() {
-  const testContxt = useTestMode();
-  console.log(testContxt);
+  
   return (
-    <div className="App">
+    <div className="canvas">
       <GlobalStyles />
-     <h1 className="test">hello</h1>
+      <div>header</div>
+      <TypingBox />
+      <div>footer</div>
     </div>
   );
 }
