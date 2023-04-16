@@ -85,5 +85,24 @@ body {
     color: red;
 }
 
+.upper-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    padding: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.4rem;
+}
+
+.modes {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.time-mode:hover {
+    color: green;
+    cursor: pointer;
+}
 
 `

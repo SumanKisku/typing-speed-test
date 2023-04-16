@@ -1,11 +1,14 @@
 import {createRef, useEffect, useMemo, useRef, useState} from 'react'
 import randomwords from 'random-words'
 import UpperMenu from "./UpperMenu";
+import { useTestMode } from "../Context/TestModeContext";
 
 const TypingBox = () => {
 
     const inputRef = useRef(null);
-    const [countDown, setCountDown] = useState(15);
+    const {testTime} = useTestMode();
+    const [countDown, setCountDown] = useState(testTime);
+    const [intervalId, setIntervalId] = useState(null);
     const [testStart, setTestStart] = useState(false);
     const [testEnd, setTestEnd] = useState(false);
     const [wordsArray, setWordsArray] = useState(()=> {
@@ -22,6 +25,7 @@ const TypingBox = () => {
     const startTimer = () => {
 
         const intervalId = setInterval(timer, 1000);
+        setIntervalId(intervalId);
 
         function timer() {
             setCountDown((prevCountDown)=> {
@@ -34,6 +38,27 @@ const TypingBox = () => {
             });
         }
         
+    }
+
+    const resetTest = () => {
+        clearInterval(intervalId);
+        setCountDown(testTime);
+        setCurrentWordIndex(0);
+        setCurrentCharIndex(0);
+        setTestStart(false);
+        setTestEnd(false);
+        setWordsArray(randomwords(50));
+        resetWordSpanRefClassname();
+        focusInput();
+    }
+
+    const resetWordSpanRefClassname = () => {
+        wordsSpanRef.map(i=> {
+            Array.from(i.current.childNodes).map(j=>{
+                j.className = "";
+            })
+        });
+        wordsSpanRef[0].current.childNodes[0].className = "current";
     }
 
     const handleUserInput = (e) => {
@@ -119,6 +144,10 @@ const TypingBox = () => {
     const focusInput = () => {
         inputRef.current.focus();
     }
+
+    useEffect(()=> {
+        resetTest();
+    }, [testTime])
 
     useEffect(()=> {
         focusInput();
