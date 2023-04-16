@@ -47,6 +47,43 @@ body {
     padding-right: 2px;
 }
 
+.hidden-input {
+    opacity: 0;
+}
+
+.current {
+    border-left: 1px solid;
+    animation: blinking 2s ease infinite;
+}
+
+@keyframes blinking {
+    0%{border-left-color: #fff}
+    25%{border-left-color: #000}
+    50%{border-left-color: #fff}
+    75%{border-left-color: #000}
+    100%{border-left-color: #fff}
+}
+
+.current-right {
+    border-right: 1px solid;
+    animation: blinkingRight 2s ease infinite;
+}
+
+@keyframes blinkingRight {
+    0%{border-right-color: #fff}
+    25%{border-right-color: #000}
+    50%{border-right-color: #fff}
+    75%{border-right-color: #000}
+    100%{border-right-color: #fff}
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
 
 
 `
