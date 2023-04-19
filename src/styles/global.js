@@ -7,8 +7,8 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body {
-    background-color: #000;
-    color: #fff;
+    background-color: ${({theme})=> theme.background};
+    color: ${({theme}) => theme.textColor};
     margin: 0;
     padding: 0;
     transition: all 0.25s linear;
@@ -40,6 +40,7 @@ body {
     font-size: 32px;
     display: flex;
     flex-wrap: wrap;
+    colors: ${({theme}) => theme.typeBoxText};
 }
 
 .word {
@@ -103,6 +104,14 @@ body {
 .time-mode:hover {
     color: green;
     cursor: pointer;
+}
+
+.footer {
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 `
