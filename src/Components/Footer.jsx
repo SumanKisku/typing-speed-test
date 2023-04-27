@@ -1,10 +1,10 @@
 import Select from 'react-select'
 import {themeOptions} from '../Utils/themeOptions'
-import { useThemeContext } from "../Context/ThemeContext";
+import { useTheme } from "../Context/ThemeContext";
 
 const Footer = () => {
 
-  const {theme, setTheme} = useThemeContext();
+  const {theme, setTheme} = useTheme();
 
   localStorage.setItem("theme", JSON.stringify(theme));
   
@@ -21,7 +21,9 @@ const Footer = () => {
         <Select
         value={theme}
         onChange={handleChange}
-        options={themeOptions} />
+        options={themeOptions}
+        menuPlacement={"auto"}
+        />
       </div>
     </div>
   )

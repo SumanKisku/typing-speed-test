@@ -1,3 +1,5 @@
+// TODO: make new themes and set cursor color, correct, incorrect color also
+
 const darkTheme = {
     label: "Dark",
     background: "black",

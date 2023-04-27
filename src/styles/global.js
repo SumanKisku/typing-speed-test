@@ -114,4 +114,35 @@ body {
     margin-right: auto;
 }
 
+.stats-box {
+    display: flex;
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.left-stats {
+    width: 30%;
+    padding: 30px;
+}
+
+.right-stats {
+    width: 70%;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.subtitle {
+    font-size: 30px;
+}
+
+.header {
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
 `
