@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Modal from '@mui/material/Modal';
-import { AppBar, Tab, Tabs } from "@mui/material";
+import { AppBar, Box, Tab, Tabs } from "@mui/material";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import { useTheme } from "../Context/ThemeContext";
+import GoogleButton from 'react-google-button'
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../firebaseConfig";
+import { toast } from "react-toastify";
+
 
 const Header = () => {
 
@@ -23,6 +28,17 @@ const Header = () => {
     const handleValueChange = (e,v) => {
         setValue(v);
     }
+
+    const handleGoogleSignIn = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+        .then((res)=> {
+            toast.success("Signed In with Google");
+        })
+        .catch((err)=> {
+            toast.error(err.code || "Something went wrong");
+        })
+    }
     
   return (
     <div className="header">
@@ -40,7 +56,7 @@ const Header = () => {
                     alignItems: "center"
                 }}
             >
-                <div style={{width: "400px"}}>
+                <div style={{width: "400px", textAlign: "center"}}>
                     <AppBar position="static" style={{background: "transparent"}}>
                           <Tabs
                             value={value}
@@ -53,6 +69,16 @@ const Header = () => {
                     </AppBar>
                       {value === 0 && <LoginForm />}
                       {value === 1 && <SignupForm />}
+
+                      <Box>
+                        <span>OR</span>
+                        <GoogleButton
+                            style={{
+                                margin: "12px auto"
+                            }}
+                            onClick={handleGoogleSignIn}
+                        />
+                      </Box>
                 </div>
             </Modal>
         </div>

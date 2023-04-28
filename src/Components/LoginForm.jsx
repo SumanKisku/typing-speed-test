@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useTheme } from "../Context/ThemeContext";
 import { auth } from "../firebaseConfig";
 import { toast } from "react-toastify";
+import errorMapping from "../Utils/errorMapping";
 
 const LoginForm = () => {
 
@@ -23,7 +24,7 @@ const LoginForm = () => {
 
         }).catch((err)=> {
             console.log(err);
-            toast.warn("Incorrect credentials");
+            toast.warn(errorMapping[err.code]);
 
         })
     }
