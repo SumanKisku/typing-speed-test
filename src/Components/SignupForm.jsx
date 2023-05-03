@@ -12,7 +12,7 @@ const SignupForm = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const {theme} = useTheme();
 
-    const handleSubmit = () => {
+    const handleSubmit = ({handleClose}) => {
         // if all the fields are not filled
         if(!email || !password || !confirmPassword) {
             toast.warn("Please fill in all the details");
@@ -30,6 +30,7 @@ const SignupForm = () => {
         .then((res) => {
             console.log(res);
             toast.success("User created");
+            handleClose();
         }).catch((err) =>{
             toast.error(errorMapping[err.code] || "Some error occured");
         });

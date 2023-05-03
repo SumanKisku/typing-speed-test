@@ -51,7 +51,7 @@ const TypingBox = () => {
                 if (latestCountDown === 1) {
                     setTestEnd(true);
                     clearInterval(intervalId);
-                    // inputRef.current.blur();
+                    inputRef.current.blur();
                     return 0;
                 }
                 return latestCountDown - 1
@@ -176,7 +176,7 @@ const TypingBox = () => {
 
     // calculate accuracy
     const calculateAcc = () => {
-        return Math.round((correctWords / currentWordIndex) * 100) || 0;
+        return Math.round((correctWords / currentWordIndex) * 100);
     }
 
     const focusInput = () => {
@@ -194,7 +194,7 @@ const TypingBox = () => {
 
     return (
         <div>
-            <UpperMenu countDown={countDown} />
+            {!testEnd && <UpperMenu countDown={countDown} />}
             {testEnd
                 ?
                 (<Stats

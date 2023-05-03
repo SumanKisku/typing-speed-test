@@ -5,7 +5,7 @@ import { auth } from "../firebaseConfig";
 import { toast } from "react-toastify";
 import errorMapping from "../Utils/errorMapping";
 
-const LoginForm = () => {
+const LoginForm = ({handleClose}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -21,6 +21,7 @@ const LoginForm = () => {
         .then((res)=> {
             console.log(res);
             toast.success("Logged In");
+            handleClose();
 
         }).catch((err)=> {
             console.log(err);

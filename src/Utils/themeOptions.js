@@ -17,7 +17,7 @@ const afterDark = {
     label: "80s After Dark",
     background: "#1B1D36",
     textColor: "#99D6EA",
-    typeBoxText: "#99D6EA"
+    typeBoxText: "grey"
 }
 
 export const themeOptions = [

@@ -1,11 +1,11 @@
 import { ThemeProvider } from "styled-components";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
-import TypingBox from "./Components/TypingBox";
 import { GlobalStyles } from "./styles/global";
 import {useTheme} from './Context/ThemeContext'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import HomePage from "./Pages/HomePage";
+import { Route, Routes } from "react-router-dom";
+import UserPage from "./Pages/UserPage";
 
 function App() {
 
@@ -13,10 +13,9 @@ function App() {
   
   return (
     <ThemeProvider theme={theme}>
-    <div className="canvas">
         <ToastContainer
           position="top-right"
-          autoClose={5000}
+          autoClose={2500}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
@@ -27,12 +26,19 @@ function App() {
           theme="dark"
         />
       <GlobalStyles />
-      <Header />
-      <TypingBox />
-      <Footer />
-    </div>
+    
+    <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/user" element={<UserPage />} />
+    </Routes>
+    
     </ThemeProvider>
   );
 }
 
 export default App;
+
+// TODO: Project evaluation
+// Responsiveness
+// Proper variable naming
+// Comments

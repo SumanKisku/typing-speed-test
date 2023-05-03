@@ -23,8 +23,6 @@ body {
     padding: 2rem;
     width: 100vw;
     align-items: center;
-    text-align: center;
-    
 }
 
 .type-box {
@@ -143,6 +141,57 @@ body {
     width: 1000px;
     margin: 0 auto;
     justify-content: space-between;
+}
+
+.user-profile {
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    height: 15rem;
+    background: ${({theme})=> theme.typeBoxText};
+    padding: 1rem;
+    justify-content: center;
+}
+
+.user {
+    width: 50%;
+    display: flex;
+    margin-top: 30px;
+    margin-bottm: 30px;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-right: 2px solid;
+}
+
+.info {
+    width: 60%;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.picture {
+    width: 40%;
+}
+
+.total-tests {
+    width: 50%;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table, .graph-user-page {
+    margin: auto;
+    width: 1000px;
+}
+
+.center-of-screen {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 `

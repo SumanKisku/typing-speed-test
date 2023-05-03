@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Graph from "./Graph"
+import { db } from "../firebaseConfig";
+import { auth } from "../firebaseConfig";
+import { toast } from "react-toastify";
+// TODO: TYPO: chracters to characters
 
 const Stats = ({wpm, accuracy, correctWords , correctChars, incorrectChars, missedChars, extraChars, graphData}) => {
 
@@ -10,6 +14,41 @@ const Stats = ({wpm, accuracy, correctWords , correctChars, incorrectChars, miss
       return i;
     }
   })
+
+  const pushDataToDB = () => {
+
+    if(isNaN(accuracy)) {
+      toast.error("Invalid test");
+      return;
+    }
+    
+    const resultsRef = db.collection("Results");
+    const {uid} = auth.currentUser;
+    console.log(auth.currentUser);
+
+    resultsRef.add({
+      wpm: wpm,
+      accuracy: accuracy,
+      timeStamp: new Date(),
+      chracters: `${correctChars}/${incorrectChars}/${missedChars}/${extraChars}`,
+      userId: uid,
+    })
+    .then((res)=> {
+      toast.success("Data saved to the db");
+    })
+    .catch((err)=> {
+      toast.error(err.code || "Not able to save result")
+    })
+  }
+
+  useEffect(()=> {
+    if(auth.currentUser) {
+      pushDataToDB();
+    }
+    else {
+      toast.warning("Login to save results");
+    }
+  }, [])
 
   return (
     <div className="stats-box">
