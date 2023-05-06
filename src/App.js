@@ -37,8 +37,3 @@ function App() {
 }
 
 export default App;
-
-// TODO: Project evaluation
-// Responsiveness
-// Proper variable naming
-// Comments

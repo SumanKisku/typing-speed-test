@@ -3,7 +3,6 @@ import Graph from "./Graph"
 import { db } from "../firebaseConfig";
 import { auth } from "../firebaseConfig";
 import { toast } from "react-toastify";
-// TODO: TYPO: chracters to characters
 
 const Stats = ({wpm, accuracy, correctWords , correctChars, incorrectChars, missedChars, extraChars, graphData}) => {
 
@@ -30,7 +29,7 @@ const Stats = ({wpm, accuracy, correctWords , correctChars, incorrectChars, miss
       wpm: wpm,
       accuracy: accuracy,
       timeStamp: new Date(),
-      chracters: `${correctChars}/${incorrectChars}/${missedChars}/${extraChars}`,
+      characters: `${correctChars}/${incorrectChars}/${missedChars}/${extraChars}`,
       userId: uid,
     })
     .then((res)=> {

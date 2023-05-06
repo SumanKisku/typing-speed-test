@@ -1,7 +1,6 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import React from 'react'
 import { useTheme } from "../Context/ThemeContext"
-// TODO: TYPO: chracters to characters
 
 
 const TableUserData = ({data}) => {
@@ -41,7 +40,7 @@ const TableUserData = ({data}) => {
                             <TableRow>
                                 <TableCell style={cellStyle}>{item.wpm}</TableCell>
                                 <TableCell style={cellStyle}>{item.accuracy}</TableCell>
-                                <TableCell style={cellStyle}>{item.chracters}</TableCell>
+                                <TableCell style={cellStyle}>{item.characters}</TableCell>
                                 <TableCell style={cellStyle}>{item.timeStamp.toDate().toLocaleString()}</TableCell>
                             </TableRow>
                         ))
