@@ -176,7 +176,7 @@ const TypingBox = () => {
 
     // calculate accuracy
     const calculateAcc = () => {
-        return Math.round((correctWords / currentWordIndex) * 100);
+        return Math.round((correctWords / currentWordIndex) * 100) || 0;
     }
 
     const focusInput = () => {
